@@ -14,6 +14,7 @@
     <ConfigurationType>$(OverrideConfigurationType)</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup>
+    <LinkIncremental>false</LinkIncremental>
     <LibName Condition="'|$(LibName)|'=='||'">$(ProjectName)</LibName>
     <UseDebugLibraries Condition="$(Configuration.ToLower().IndexOf('debug'))!=-1">true</UseDebugLibraries>
     <UseDebugLibraries Condition="$(Configuration.ToLower().IndexOf('debug'))==-1">false</UseDebugLibraries>
