@@ -351,11 +351,11 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
 
 
                 // 'declare' the properties in global scope/
-                var propName = "Needs-{0}".format(_pkgName);
+                var propName = "Needs-{0}".format(_pkgName.Replace(".","-"));
                 pg.AddProperty(propName, "");
                 pg.Condition = "'$({0})' == '' OR '$({0})' == '*Undefined*'".format(propName);
 
-                propName = "Needs-{0}-Version".format(_pkgName);
+                propName = "Needs-{0}-Version".format(_pkgName.Replace(".","-"));
                 pg.AddProperty(propName, "");
                 pg.Condition = "'$({0})' == '' OR '$({0})' == '*Undefined*'".format(propName);
 
