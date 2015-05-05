@@ -636,7 +636,10 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
             }
 
             return _buildTimePaths.GetOrAdd(condition, () => new ListWithAction<string>(path => {
-                
+                if (!path.EndsWith(";")) {
+                    path += ";";
+                }
+
                 var tsk = ((ProjectTargetElement)SecondInitTarget).AddTask("SetEnv");
                 tsk.Condition = Pivots.GetMSBuildCondition(Name, condition);
 
