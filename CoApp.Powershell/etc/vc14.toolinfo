@@ -1,0 +1,35 @@
+﻿
+VC_V140_X64 {
+    // do what is neccesary to generate the environment.
+    .GetEnvironmentFromBatchFile { 
+      BatchFile="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat";
+      Parameters="amd64";
+    };
+};
+
+VC_V140_WIN32 { 
+    .SetEnvironmentFromTarget.Target = "VC_V140_X86";
+    .Error.Condition = !$(IsEnvironmentValid);
+};
+
+VC_V140_AMD64 {
+    .SetEnvironmentFromTarget.Target = "VC_V140_X64";
+    .Error.Condition = !$(IsEnvironmentValid);
+};
+
+VC_V140_X86 {
+    // do what is neccesary to generate the environment.
+    .GetEnvironmentFromBatchFile { 
+      BatchFile="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat";
+      Parameters="x86";
+    };
+};
+
+
+VC_V140_ARM {
+    // do what is neccesary to generate the environment.
+    .GetEnvironmentFromBatchFile { 
+      BatchFile="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat";
+      Parameters="x86_arm";
+    };
+};

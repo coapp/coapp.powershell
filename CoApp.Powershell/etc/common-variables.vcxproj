@@ -16,6 +16,7 @@
     <IS_RELEASE>false</IS_RELEASE>
     <IS_DEBUG>false</IS_DEBUG>
 
+    <IS_V140>false</IS_V140>
     <IS_V120>false</IS_V120>
     <IS_V110>false</IS_V110>
     <IS_V100>false</IS_V100>
@@ -39,6 +40,7 @@
     <IS_RELEASE Condition="$(Configuration.ToLower().IndexOf('debug')) == -1">true</IS_RELEASE>
     <IS_DEBUG Condition="$(Configuration.ToLower().IndexOf('debug')) != -1">true</IS_DEBUG>
 
+    <IS_V140 Condition="$(PlatformToolset.ToLower().IndexOf('v140')) != -1">true</IS_V140>
     <IS_V120 Condition="$(PlatformToolset.ToLower().IndexOf('v120')) != -1">true</IS_V120>
     <IS_V110 Condition="$(PlatformToolset.ToLower().IndexOf('v110')) != -1">true</IS_V110>
     <IS_V100 Condition="$(PlatformToolset.ToLower().IndexOf('v100')) != -1">true</IS_V100>

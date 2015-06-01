@@ -7,7 +7,7 @@ commands {
 configurations {
     Toolset { 
         key : "PlatformToolset"; 
-        choices: { v110, v100, v90, v80, v71, v70, v60, gcc, v110_xp, v110_wp80 };  
+        choices: {v140, v120, v110, v100, v90, v80, v71, v70, v60, gcc, v110_xp, v110_wp80 };  
 		// Explicitly Not including pivot variants:  "WindowsKernelModeDriver8.0", "WindowsApplicationForDrivers8.0", "WindowsUserModeDriver8.0" 
 		
 		// We're normalizing out the concept of the v110 platform -- Overloading the $(PlatformToolset) variable for additional pivots was a dumb idea.
