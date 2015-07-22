@@ -351,11 +351,11 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
 
 
                 // 'declare' the properties in global scope/
-                var propName = "Needs-{0}".format(_pkgName);
+                var propName = "Needs-{0}".format(_pkgName).Replace(".", "_");
                 pg.AddProperty(propName, "");
                 pg.Condition = "'$({0})' == '' OR '$({0})' == '*Undefined*'".format(propName);
 
-                propName = "Needs-{0}-Version".format(_pkgName);
+                propName = "Needs-{0}-Version".format(_pkgName).Replace(".", "_");
                 pg.AddProperty(propName, "");
                 pg.Condition = "'$({0})' == '' OR '$({0})' == '*Undefined*'".format(propName);
 
@@ -392,8 +392,8 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
                 // version check.
                 var wantVer = ((UInt64)((FourPartVersion)(string)_nuSpec.metadata.version)).ToString();
 
-                var nvPropName = "Needs-{0}-Version".format(_pkgName);
-                var propName = "Needs-{0}".format(_pkgName);
+                var nvPropName = "Needs-{0}-Version".format(_pkgName).Replace(".", "_");
+                var propName = "Needs-{0}".format(_pkgName).Replace(".", "_");
                 
                 var prop = pg.AddProperty(nvPropName, (string)_nuSpec.metadata.version);
                 prop.Condition = "'$({0})' == '' OR $({0}) < {1} ".format(propName, wantVer);
