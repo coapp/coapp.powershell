@@ -427,8 +427,10 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
                             overlays.Add(overlayPackageName);
 
                             // iterate thru all the files in the base set, and add them to this package's list
-                            foreach (var src in _fileSets[string.Empty].Keys) {
-                                AddFileToNuSpec(_fileSets[string.Empty][src], src);
+                            if (_fileSets.ContainsKey(string.Empty)) {                            
+                                foreach (var src in _fileSets[string.Empty].Keys) {
+                                    AddFileToNuSpec(_fileSets[string.Empty][src], src);
+                                }
                             }
 
                             // then add the NuGetPackageOverlay tasks into the init target 
